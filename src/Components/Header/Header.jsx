@@ -10,6 +10,15 @@ import {ReactComponent as Downarrow} from "../../assest/chevron_down.svg"
 
 
 function Header() {
+
+const getLogin=(e)=>{
+    fetch('https://github.com/login/oauth/authorize')
+    .then(res=>res.json())
+    .then(res=>console.log(res))
+}
+
+
+
     return (<>
         <div className="header">
             <div className="header__logoContainer">
@@ -28,7 +37,7 @@ function Header() {
                 <h3>Client</h3>
                 <Downarrow/>
                 </div>
-                <h3>Login</h3>
+                <h3 onClick={getLogin}>Login</h3>
             </div>
 
             <div className="Header__logoContainer">
