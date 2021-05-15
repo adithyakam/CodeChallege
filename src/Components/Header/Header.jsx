@@ -12,7 +12,13 @@ import {ReactComponent as Downarrow} from "../../assest/chevron_down.svg"
 function Header() {
 
 const getLogin=(e)=>{
-    fetch('https://github.com/login/oauth/authorize')
+    fetch('https://github.com/login/oauth/authorize',{
+        method: 'GET',
+        mode: 'no-cors',
+
+        headers: {'Content-Type': 'application/json'},
+       
+    })
     .then(res=>res.json())
     .then(res=>console.log(res))
 }
