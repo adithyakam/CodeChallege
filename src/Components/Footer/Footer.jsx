@@ -35,7 +35,7 @@ function Footer() {
                 Email : community@orizon.com
                 </p>
             </div>
-            <Group/>
+            <Group className="groupImg"/>
         </div>
     )
 }

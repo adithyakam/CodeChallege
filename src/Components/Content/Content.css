@@ -56,3 +56,39 @@ margin:20px 0 0 0 ;
     
 color: #007BFF;
 }
+
+@media only screen and (max-width: 600px) {
+
+    .content{
+        padding: 40px
+    }
+
+    .content__Container{
+        flex-direction: column;
+        width:90%
+    }
+
+    .content__Img{
+        width: 349px;
+height: 340.54px;
+    }
+
+    .content__textContainer h1{
+        font-style: normal;
+        font-weight: 500;
+        font-size: 30px; 
+        /* text-align: center; */
+    }
+
+    .content__textContainer h1 span{
+        font-size: 32px; 
+
+    }
+
+    .content__textContainer p{
+        font-style: normal;
+font-weight: normal;
+font-size: 18px;
+    }
+
+}

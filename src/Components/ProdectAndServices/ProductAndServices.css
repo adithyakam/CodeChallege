@@ -41,3 +41,26 @@ background: #007BFF;
 box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
 border-radius: 4px;
 }
+
+
+@media only screen and (max-width: 600px) {
+
+    .productServices__ProductContainer{
+        flex-direction: column;
+        justify-content: space-between;
+        align-items:center
+    }
+
+    .productServices__ProductContainer h6{
+        font-style: normal;
+font-weight: 500;
+font-size: 28px;
+    }
+
+    .productServices__ProductContainer p{
+        font-weight: normal;
+font-size: 18px;
+/* line-height: 150%; */
+    }
+
+}

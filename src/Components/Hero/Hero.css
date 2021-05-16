@@ -62,3 +62,49 @@ font-size: 20px;
 line-height: 29px;
 
 }
+
+
+@media only screen and (max-width: 600px) {
+
+    .Hero{
+        flex-direction:column-reverse;
+        /* margin:auto auto; */
+        align-items: center;
+        width:90%
+
+    }
+
+    .Hero__image{
+        width:349px;
+        height:236.57px
+    }
+
+    .Hero__content{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .Hero__content h1{
+        font-family: Roboto;
+        font-size: 34px;
+        font-style: normal;
+        font-weight: 500;
+        letter-spacing: 0em;
+        /* text-align: center; */
+
+    }
+
+    .Hero__content span{
+        font-size: 31px;
+        font-style: normal;
+        font-weight: 500;
+        letter-spacing: 0em;
+        /* text-align: center; */
+    }
+
+    .Hero__content p{
+        font-size: 20px;
+        line-height: 29px;
+    }
+}
