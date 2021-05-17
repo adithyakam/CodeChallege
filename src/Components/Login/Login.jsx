@@ -23,9 +23,9 @@ function Login(props) {
 
     useEffect(() => {
 
-      // if(!props.location.code){
-      //   history.push('/')
-      // }
+      if(!props.location.code){
+        history.push('/')
+      }
 
         axios({
             method: 'post',
@@ -37,7 +37,7 @@ function Login(props) {
             }
           }).then(res=>{
             
-            let dummy =res.data.split('\&')
+            let dummy =res.data.split('&')
             let dummy2=dummy[0].split('=')
             settoken(dummy2[1])
            
