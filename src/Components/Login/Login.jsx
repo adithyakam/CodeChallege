@@ -23,9 +23,9 @@ function Login(props) {
 
     useEffect(() => {
 
-      if(!props.location.code){
-        history.push('/')
-      }
+      // if(!props.location.code){
+      //   history.push('/')
+      // }
 
         axios({
             method: 'post',
@@ -46,6 +46,7 @@ function Login(props) {
     },[])
 
     console.log(token);
+    
     useEffect(() => {
       axios.get('/user/repos' , { headers: {"Authorization" : `Bearer ${token}`} })
       .then(res=>setdata(res.data))
