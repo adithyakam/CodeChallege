@@ -14,8 +14,9 @@ font-family: 'Roboto', sans-serif;
 
 .App__copyrigth{
     background-color:#007BFF;
-    /* position:absolute; */
-    /* top:90%; */
+    position:sticky;
+    top:90%;
+    /* bottom:0%; */
     width:100%;
     height: 64px;
     text-align: center;

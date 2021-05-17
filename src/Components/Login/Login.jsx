@@ -1,47 +1,74 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useHistory } from 'react-router';
+import Repo from '../Repo/Repo';
+
+
+
+import "./Login.css"
+
 require('dotenv').config();
+
+const axios = require('axios');
 
 
 
 function Login(props) {
-    const {REACT_APP_CLIENT_ID,REACT_APP_Client_secretID}=process.env;
 
-    const url="https://github.com/login/oauth/access_token"
-    // https://cors-anywher.heroku.com/
+  const history=useHistory()
+    const [token, settoken] = useState("")
+
+    const [data, setdata] = useState([])
+
+    const {REACT_APP_CLIENT_ID,REACT_APP_Client_secretID}=process.env;
 
     useEffect(() => {
 
+      if(!props.location.code){
+        history.push('/')
+      }
 
-        let headers = new Headers();
-        // headers.append('Content-Type', 'application/json');
-        // headers.append('Accept', 'application/json');
-        headers.append('Access-Control-Allow-Origin', '*')
-        headers.append('Access-Control-Allow-Credentials', "true")
-        headers.append('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
-        headers.append('Access-Control-Allow-Headers', 'Origin, Content-Type, Accept')
-        // headers.append('Authorization', 'Basic ' + base64.encode(username + ":" +  password));
-        // headers.append('Origin','http://localhost:3000');
-    
-        fetch(url,
-        {
-            // mode: 'no-cors',
-            // credentials: 'include',
-            method: 'POST',
-            headers: headers,
-            body:{
+        axios({
+            method: 'post',
+            url: "/login/oauth/access_token",
+            data: {
                 code:props.location.code,
                 client_id:REACT_APP_CLIENT_ID,
                 client_secret:REACT_APP_Client_secretID
             }
-            // body:data
-        }
-        ).then(res=>res.json())
-        .then(res=>console.log(res))
-    })
+          }).then(res=>{
+            
+            let dummy =res.data.split('\&')
+            let dummy2=dummy[0].split('=')
+            settoken(dummy2[1])
+           
+          })
+
+    },[])
+
+    useEffect(() => {
+      axios.get('/user/repos' , { headers: {"Authorization" : `Bearer ${token}`} })
+      .then(res=>setdata(res.data))
+     
+
+    }, [token])
       
+
     return (
-        <div>
-            <h1>in login</h1>
+        <div className="login">
+            <h1>Repos</h1>
+            <div className={`login__Repo ${data.length?"min":"max"}`}>
+              {
+                data.length?(
+                    data.map(ele=>(
+                        <Repo key={ele.id} ele={ele}/>
+                    ))
+
+
+                ):(
+                  <h1>No Repository</h1>
+                )
+              }
+            </div>
         </div>
     )
 }

@@ -12,7 +12,7 @@ function App() {
       <Router>
         <Header/>
         <Switch>
-          <Route path="/login" component={Login}/>
+          <Route path="/Repo" component={Login}/>
           <Route path="/" component={Home}/>
         </Switch>
       </Router>

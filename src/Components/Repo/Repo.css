@@ -1,0 +1,23 @@
+.Repo{
+    width:250px;
+    display:flex;
+    font-size:0.8rem;
+    justify-content:space-between;
+    align-items:center;
+    background-color:#91c5fd;
+    padding:15px;
+    color:rgb(34, 33, 33);
+    border-radius:10px;
+    margin:3px;
+}
+
+.Repo__starContainer{
+    display:flex;
+    align-items:center;
+    justify-content:space-around
+}
+
+.Repo_star{
+    height:20px;
+    width:30px;
+}
