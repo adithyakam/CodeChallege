@@ -6,7 +6,7 @@ require('dotenv').config();
 function Login(props) {
     const {REACT_APP_CLIENT_ID,REACT_APP_Client_secretID}=process.env;
 
-    const url="/login/oauth/access_token"
+    const url="https://github.com/login/oauth/access_token"
     // https://cors-anywher.heroku.com/
 
     useEffect(() => {
