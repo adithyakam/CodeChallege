@@ -23,9 +23,9 @@ function Login(props) {
 
     useEffect(() => {
 
-      if(!props.location.code){
-        history.push('/')
-      }
+      // if(!props.location.code){
+      //   history.push('/')
+      // }
 
         axios({
             method: 'post',
