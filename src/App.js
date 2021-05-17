@@ -1,10 +1,8 @@
 import './App.css';
-import Content from './Components/Content/Content';
-import Footer from './Components/Footer/Footer';
+
 import Header from './Components/Header/Header';
-import Hero from './Components/Hero/Hero';
+
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import ProductAndServices from './Components/ProdectAndServices/ProductAndServices';
 import Login from './Components/Login/Login';
 import Home from './Components/Home/Home';
 

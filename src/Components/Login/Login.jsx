@@ -4,7 +4,7 @@ require('dotenv').config();
 
 
 function Login(props) {
-    const {REACT_APP_CLIENT_ID,REACT_APP_Client_secretID,REACT_APP_REDIRECT_URI}=process.env;
+    const {REACT_APP_CLIENT_ID,REACT_APP_Client_secretID}=process.env;
 
     const url="/login/oauth/access_token"
     // https://cors-anywher.heroku.com/
@@ -22,7 +22,7 @@ function Login(props) {
         // headers.append('Authorization', 'Basic ' + base64.encode(username + ":" +  password));
         // headers.append('Origin','http://localhost:3000');
     
-        fetch("/login/oauth/access_token",
+        fetch(url,
         {
             // mode: 'no-cors',
             // credentials: 'include',

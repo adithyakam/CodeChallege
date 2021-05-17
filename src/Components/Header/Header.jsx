@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import "./Header.css"
 
@@ -11,8 +11,7 @@ import {ReactComponent as HamBurger} from "../../assest/hamburger.svg"
 
 import { useHistory } from 'react-router'
 import OauthPopup from 'react-oauth-popup'
-import Login from '../Login/Login'
-import { popupSignIn } from '../../firebase'
+
 
 
 
@@ -45,7 +44,7 @@ function Header() {
             code:code,
           })
       }
-    }, [code])
+    }, )
 
 
     const openHam=(e)=>{
