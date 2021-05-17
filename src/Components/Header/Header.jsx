@@ -40,7 +40,7 @@ function Header() {
     useEffect(() => {
       if(code){
           history.push({
-            pathname: '/login',
+            pathname: '/',
             code:code,
           })
       }
