@@ -45,6 +45,7 @@ function Login(props) {
 
     },[])
 
+    console.log(token);
     useEffect(() => {
       axios.get('/user/repos' , { headers: {"Authorization" : `Bearer ${token}`} })
       .then(res=>setdata(res.data))
@@ -52,7 +53,7 @@ function Login(props) {
 
     }, [token])
       
-
+console.log(data);
     return (
         <div className="login">
             <h1>Repos</h1>
