@@ -29,7 +29,7 @@ function Login(props) {
 
         axios({
             method: 'post',
-            url: "https://github.com/login/oauth/access_token",
+            url: "/login/oauth/access_token",
             data: {
                 code:props.location.code,
                 client_id:REACT_APP_CLIENT_ID,
@@ -48,7 +48,7 @@ function Login(props) {
     console.log(token);
     
     useEffect(() => {
-      axios.get('https://api.github.com//user/repos' , { headers: {"Authorization" : `Bearer ${token}`} })
+      axios.get('/user/repos' , { headers: {"Authorization" : `Bearer ${token}`} })
       .then(res=>setdata(res.data))
      
 
