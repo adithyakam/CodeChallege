@@ -63,13 +63,34 @@ flex:0.16;
     box-shadow: 0px 1px 2px 0px #00000040;
 }
 
+.Header__hamburer{
+    display:none !important
+}
 
 @media only screen and (max-width: 600px) {
+
     .mobileD{
-        display: none;
+        display:none
     }
 
     .header{
-        flex-direction:column
+        flex-direction:column;
     }
+
+    .Header__hamburer{
+        display:block !important;
+        position:absolute;
+        right:20px;
+        top:40px;
+    }
+
+    .showDrop{
+        flex-direction:column;
+
+
+    }
+.hideDrop{
+        display:none;
+}
+
 }

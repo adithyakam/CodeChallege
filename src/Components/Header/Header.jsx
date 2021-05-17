@@ -7,6 +7,8 @@ import {ReactComponent as Home} from "../../assest/Union.svg"
 import {ReactComponent as Mail} from "../../assest/mail.svg"
 import {ReactComponent as Shuffle} from "../../assest/shuffle.svg"
 import {ReactComponent as Downarrow} from "../../assest/chevron_down.svg"
+import {ReactComponent as HamBurger} from "../../assest/hamburger.svg"
+
 import { useHistory } from 'react-router'
 import OauthPopup from 'react-oauth-popup'
 import Login from '../Login/Login'
@@ -20,18 +22,18 @@ function Header() {
     const {REACT_APP_CLIENT_ID,REACT_APP_REDIRECT_URI}=process.env;
     const _url=`https://github.com/login/oauth/authorize?scope=user&client_id=${REACT_APP_CLIENT_ID}&redirect_uri=${REACT_APP_REDIRECT_URI}`
     const history =useHistory();
-    const reff= useRef()
+
+    const [toggle, settoggle] = useState(true)
+
 
     const [code, setcode] = useState("")
 
 
-    const onClosed = () => console.log("closed!");
+    const onClosed = () => {
+        // console.log("closed!")
+    };
     const onCode = (code, params) => {
-                    
-                console.log("wooooo a code", code);
-                console.log("alright! the URLSearchParams interface from the popup url", params);
-                // window.opener.location.replace("http://localhost:3000/");
-                window.close();
+                // window.close();
                 setcode(code);
 
               }
@@ -45,6 +47,11 @@ function Header() {
       }
     }, [code])
 
+
+    const openHam=(e)=>{
+        e.preventDefault();
+        settoggle(!toggle)
+    }
     
 
     return (<>
@@ -53,7 +60,7 @@ function Header() {
                 <Logo/>
                 <h1>ORIZON</h1>
             </div>
-            <div className="header__routecontainer mobileD">
+            <div className={`header__routecontainer  ${toggle?'showDrop': 'hideDrop'}`}>
                 <h3>Services</h3>
                 <h3>Product</h3>
                 <h3>Technology</h3>
@@ -69,21 +76,20 @@ function Header() {
                 {/* <a href={_url} >Login</a> */}
                 <OauthPopup
                 url={_url}
-                onCode={onCode.bind(OauthPopup.onClose)}
+                onCode={onCode}
                 onClose={onClosed}
                 // onclick={ref(this)}
-                ref={reff}
                 >
                 <div>Login</div>
                 </OauthPopup>
             </div>
 
-            <div className="Header__logoContainer mobileD">
+            <div className={`Header__logoContainer mobileD`}>
                 <Home/>
                 <Mail/>
                 <Shuffle/>
             </div>
-
+            <HamBurger className={`Header__hamburer`}onClick={openHam}/>
         </div>
         <div className="hearder__border">
 
