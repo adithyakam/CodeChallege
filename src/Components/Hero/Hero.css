@@ -1,3 +1,27 @@
+.HeroCarousal{
+    display:flex;
+    position:relative;
+}
+
+.car{
+    display:none !important;
+}
+
+.arrow{
+    position:absolute;
+    width:100%;
+}
+
+.left{
+    left:0;
+    top:50%
+}
+
+.Rigth{
+    left:80%;
+top: 50%;    
+}
+
 .Hero{
     display:flex;
     align-items: center;
